@@ -18,7 +18,7 @@ const Navbar = () => {
                 role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastro</a>
               <ul className="dropdown-menu" aria-labelledby="cadastroDropdown">
                 <li><a className="dropdown-item" href="/new-book">Livros</a></li>
-                <li><a className="dropdown-item" href="/authors">Autores</a></li>
+                <li><a className="dropdown-item" href="/new-authors">Autores</a></li>
                 <li><a className="dropdown-item" href="/publishers">Editoras</a></li>
               </ul>
             </li>
@@ -27,7 +27,7 @@ const Navbar = () => {
                 role="button" data-bs-toggle="dropdown" aria-expanded="false">Listar</a>
               <ul className="dropdown-menu" aria-labelledby="listarDropdown">
                 <li><a className="dropdown-item" href="/book-list">Livros</a></li>
-                <li><a className="dropdown-item" href="/authors">Autores</a></li>
+                <li><a className="dropdown-item" href="/authors-list">Autores</a></li>
                 <li><a className="dropdown-item" href="/publishers">Editoras</a></li>
               </ul>
             </li>
