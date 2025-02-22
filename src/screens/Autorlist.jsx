@@ -97,8 +97,8 @@ function AuthorList() {
                                                     <p><strong>Ano de Publicação:</strong> {book.yearPublication || "Não informado"}</p>
                                                     <p><strong>Editora:</strong> {book.publisherName || "Não informado"}</p>
                                                     <p><strong>Número de Páginas:</strong> {book.numberPages || "Não informado"}</p>
-                                                    <p><strong>Quantidade de Cópias:</strong> {book.numberCopies || "Não informado"}</p>
-                                                    <p><strong>Autores:</strong> {book.authorNames?.join(", ") || "Não informado"}</p>
+                                                    {/* <p><strong>Quantidade de Cópias:</strong> {book.numberCopies || "Não informado"}</p> */}
+                                                    {/* <p><strong>Autores:</strong> {book.authorNames?.join(", ") || "Não informado"}</p> */}
                                                 </div>
                                             </div>
                                         </div>
