@@ -3,26 +3,26 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 
-function BookList() {
+function PublisherList() {
     const navigate = useNavigate();
-    const [books, setBooks] = useState([]); // Estado para armazenar os livros
+    const [publishers, setPublishers] = useState([]); // Estado para armazenar as editoras
     const [searchTerm, setSearchTerm] = useState(""); // Estado para armazenar o termo de busca
     const [loading, setLoading] = useState(true); // Estado de carregamento
 
-    async function fetchBooks() {
+    async function fetchPublishers() {
         try {
-            const response = await axios.get("http://localhost:8080/v1/book");
-            setBooks(response.data); // Atualiza o estado com os dados recebidos
+            const response = await axios.get("http://localhost:8080/v1/publisher");
+            setPublishers(response.data); // Atualiza o estado com os dados recebidos
             setLoading(false); // Desativa o carregamento
-            console.log("Livros recebidos:", response.data);
+            console.log("Editoras recebidas:", response.data);
         } catch (error) {
-            console.error("Erro ao buscar livros:", error);
+            console.error("Erro ao buscar editoras:", error);
             setLoading(false); // Também desativa o carregamento em caso de erro
         }
     }
 
     useEffect(() => {
-        fetchBooks();
+        fetchPublishers();
     }, []); // Chama a função quando o componente for montado
 
     // Função para atualizar o termo de busca
@@ -30,9 +30,9 @@ function BookList() {
         setSearchTerm(event.target.value);
     };
 
-    // Filtrando os livros com base no termo de busca
-    const filteredBooks = books.filter((book) =>
-        book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    // Filtrando as editoras com base no termo de busca
+    const filteredPublishers = publishers.filter((publisher) =>
+        publisher.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     if (loading) {
@@ -41,41 +41,34 @@ function BookList() {
 
     return (
         <div className="container mt-5">
-            <h1 className="mb-4">Lista de Livros</h1>
+            <h1 className="mb-4">Lista de Editoras</h1>
 
             <form className="mb-4">
-
                 <div className="input-group">
                     <input
                         type="text"
                         className="form-control"
                         value={searchTerm}
                         onChange={handleChange}
-                        placeholder="Buscar por título"
+                        placeholder="Buscar por nome"
                     />
                 </div>
             </form>
             <table className="table table-striped table-bordered">
                 <thead className="table-dark">
                     <tr>
-                        <th>Título</th>
-                        <th>ISBN</th>
-                        <th>Ano de Publicação</th>
+                        <th>Nome</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-
-                    {filteredBooks.map((book) => (
-                        <tr key={book.id}>
-                            <td>{book.title}</td>
-                            <td>{book.isbn}</td>
-                            <td>{book.yearPublication}</td>
-
+                    {filteredPublishers.map((publisher) => (
+                        <tr key={publisher.id}>
+                            <td>{publisher.name}</td>
                             <td>
                                 <button
                                     className="btn btn-warning btn-sm"
-                                    onClick={() => navigate("/update-book", { state: { book } })}
+                                    onClick={() => navigate("/new-publisher", { state: { publisher } })}
                                 >
                                     Editar
                                 </button>
@@ -83,16 +76,16 @@ function BookList() {
                                     className="btn btn-danger btn-sm ms-2"
                                     onClick={() => {
                                         if (window.confirm("Tem certeza que deseja excluir?")) {
-                                            console.log("Tentando excluir o livro com ID:", book.id); // Debug
-                                            if (book.id) {
-                                                axios.delete(`http://localhost:8080/v1/book/${book.id}`)
+                                            console.log("Tentando excluir a editora com ID:", publisher.id); // Debug
+                                            if (publisher.id) {
+                                                axios.delete(`http://localhost:8080/v1/publisher/${publisher.id}`)
                                                     .then(() => {
-                                                        console.log("Livro excluído com sucesso:", book.id);
-                                                        fetchBooks(); // Atualiza a lista
+                                                        console.log("Editora excluída com sucesso:", publisher.id);
+                                                        fetchPublishers(); // Atualiza a lista
                                                     })
-                                                    .catch(error => console.error("Erro ao excluir livro:", error));
+                                                    .catch(error => console.error("Erro ao excluir editora:", error));
                                             } else {
-                                                console.error("Erro: ID do livro é null ou indefinido.");
+                                                console.error("Erro: ID da editora é null ou indefinido.");
                                             }
                                         }
                                     }}
@@ -108,4 +101,4 @@ function BookList() {
     );
 }
 
-export default BookList;
+export default PublisherList;

@@ -19,7 +19,7 @@ const Navbar = () => {
               <ul className="dropdown-menu" aria-labelledby="cadastroDropdown">
                 <li><a className="dropdown-item" href="/new-book">Livros</a></li>
                 <li><a className="dropdown-item" href="/new-authors">Autores</a></li>
-                <li><a className="dropdown-item" href="/publishers">Editoras</a></li>
+                <li><a className="dropdown-item" href="/new-publishers">Editoras</a></li>
               </ul>
             </li>
             <li className="nav-item dropdown">
@@ -28,7 +28,7 @@ const Navbar = () => {
               <ul className="dropdown-menu" aria-labelledby="listarDropdown">
                 <li><a className="dropdown-item" href="/book-list">Livros</a></li>
                 <li><a className="dropdown-item" href="/authors-list">Autores</a></li>
-                <li><a className="dropdown-item" href="/publishers">Editoras</a></li>
+                <li><a className="dropdown-item" href="/publishers-list">Editoras</a></li>
               </ul>
             </li>
             <li className="nav-item dropdown">

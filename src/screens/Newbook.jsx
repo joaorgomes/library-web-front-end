@@ -10,7 +10,7 @@ function NewBook() {
     isbn: "",
     yearPublication: "",
     numberPages: "",
-    publisherId: 0,
+    publisherId: 1,
     authorIds: [],
     numberCopies: 1,
     gender: "",
@@ -78,6 +78,8 @@ function NewBook() {
 
       if (id) {
         await axios.put(`http://localhost:8080/v1/book/${id}`, newBook);
+        console.log(response.data)
+        console.log("Passou AQUI !!!!")
       } else {
         await axios.post("http://localhost:8080/v1/book", newBook);
       }
