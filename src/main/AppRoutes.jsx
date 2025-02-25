@@ -10,7 +10,7 @@ import NewAuthor from "../screens/NewAuthor";
 import AuthorList from "../screens/Autorlist";
 import NewPublisher from "../screens/NewPublisher";
 import PublisherList from "../screens/Publisherlist";
-import UpdateBook from "../screens/Updatebook";
+//import UpdateBook from "../screens/Updatebook";
 
 
 function AppRoutes() {
@@ -31,7 +31,7 @@ function AppRoutes() {
                     <Route path="authors-list" element={<AuthorList />} />
                     <Route path="new-publishers" element={<NewPublisher />} />
                     <Route path="publishers-list" element={<PublisherList />} />
-                    <Route path="update-book" element={<UpdateBook />} />
+                    <Route path="new-book" element={<NewBook />} />
                 </Route>
             </Routes>
         </Router>

@@ -75,7 +75,7 @@ function BookList() {
                             <td>
                                 <button
                                     className="btn btn-warning btn-sm"
-                                    onClick={() => navigate("/update-book", { state: { book } })}
+                                    onClick={() => navigate("/new-book", { state: { book } })}
                                 >
                                     Editar
                                 </button>
