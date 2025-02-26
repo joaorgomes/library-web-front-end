@@ -261,6 +261,24 @@ function NewBook() {
     updatedTitles[index] = e.target.value;
     setChapterTitles(updatedTitles);
   };
+  const handleCancel = () => {
+    if (isEditing) {
+      navigate("/book-list");
+    } else {
+      setBook({
+        title: "",
+        isbn: "",
+        yearPublication: "",
+        numberPages: "",
+        publisherId: "",
+        authorIds: [],
+        numberCopies: 1,
+        gender: "",
+        chapters: {}
+      });
+      setChapterTitles([]);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -364,10 +382,12 @@ function NewBook() {
           </div>
         ))}
         <button type="submit" className="btn btn-primary">{isEditing ? "Atualizar Livro" : "Salvar Livro"}</button>
+        <button type="button" className="btn btn-secondary" onClick={handleCancel}>Cancelar</button>
       </form>
     </div>
   );
 }
 
 export default NewBook;
+
 

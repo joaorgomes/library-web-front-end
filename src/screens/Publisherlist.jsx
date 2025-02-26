@@ -68,7 +68,7 @@ function PublisherList() {
                             <td>
                                 <button
                                     className="btn btn-warning btn-sm"
-                                    onClick={() => navigate("/new-publisher", { state: { publisher } })}
+                                    onClick={() => navigate("/new-publishers", { state: { publisher } })}
                                 >
                                     Editar
                                 </button>

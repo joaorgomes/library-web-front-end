@@ -57,7 +57,7 @@ function NewPublisher() {
             <button className="btn btn-primary" type="submit">
               {publisher.id ? "Salvar alterações" : "Cadastrar"}
             </button>
-            <button className="btn btn-danger" type="button" onClick={() => navigate("/dashboard")}>
+            <button className="btn btn-danger" type="button" onClick={() => navigate("/publishers-list")}>
               Cancelar
             </button>
           </div>
