@@ -6,6 +6,12 @@ import Dashboard from "../screens/Dashboard";
 import NewUser from "../screens/Newuser";
 import BookList from "../screens/Booklist";
 import NewBook from "../screens/Newbook";
+import NewAuthor from "../screens/NewAuthor";
+import AuthorList from "../screens/Autorlist";
+import NewPublisher from "../screens/NewPublisher";
+import PublisherList from "../screens/Publisherlist";
+//import UpdateBook from "../screens/Updatebook";
+
 
 function AppRoutes() {
     return (
@@ -21,7 +27,11 @@ function AppRoutes() {
                     <Route path="dashboard" element={<Dashboard />} />
                     <Route path="book-list" element={<BookList />} />
                     <Route path="new-book" element={<NewBook />} />
-                    
+                    <Route path="new-authors" element={<NewAuthor />} />
+                    <Route path="authors-list" element={<AuthorList />} />
+                    <Route path="new-publishers" element={<NewPublisher />} />
+                    <Route path="publishers-list" element={<PublisherList />} />
+                    <Route path="new-book" element={<NewBook />} />
                 </Route>
             </Routes>
         </Router>
