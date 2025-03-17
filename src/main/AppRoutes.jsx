@@ -8,10 +8,10 @@ import BookList from "../screens/Booklist";
 import NewBook from "../screens/Newbook";
 import NewAuthor from "../screens/NewAuthor";
 import AuthorList from "../screens/Autorlist";
-import NewPublisher from "../screens/NewPublisher";
+import NewPublisher from "../screens/Newpublisher";
 import PublisherList from "../screens/Publisherlist";
-//import UpdateBook from "../screens/Updatebook";
-
+import LoanManagement from "../screens/LoansList";
+import NewLoan from "../screens/Newloan";
 
 function AppRoutes() {
     return (
@@ -31,7 +31,8 @@ function AppRoutes() {
                     <Route path="authors-list" element={<AuthorList />} />
                     <Route path="new-publishers" element={<NewPublisher />} />
                     <Route path="publishers-list" element={<PublisherList />} />
-                    <Route path="new-book" element={<NewBook />} />
+                    <Route path="new-loan" element={<NewLoan />} />
+                    <Route path="loan-list" element={<LoanManagement />} />
                 </Route>
             </Routes>
         </Router>

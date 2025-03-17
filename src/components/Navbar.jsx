@@ -39,8 +39,15 @@ const Navbar = () => {
                 <li><a className="dropdown-item" href="/contract-clauses">Claúsulas de Contrato</a></li>
               </ul>
             </li>
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="loanDropdown"
+                role="button" data-bs-toggle="dropdown" aria-expanded="false">Emprétimos</a>
+              <ul className="dropdown-menu" aria-labelledby="loanDropdown">
+                <li><a className="dropdown-item" href="/new-loan">Novo Emprestimo</a></li>
+                <li><a className="dropdown-item" href="/loan-list">Consultar Empréstimos</a></li>
+              </ul>
+            </li>
             <NavbarItem href="/surveys" label="Vistorias" />
-            <NavbarItem href="/loans" label="Empréstimos" />
             <NavbarItem href="/login" label="Sair" />
 
           </ul>
