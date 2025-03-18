@@ -1,14 +1,18 @@
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 import AppRoutes from "./main/AppRoutes";
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
     return (
-        <AppRoutes />
-    )
+        <Router>
+            <AuthProvider>
+                <AppRoutes />
+            </AuthProvider>
+        </Router>
+    );
 }
 
 export default App;
+
 
