@@ -33,7 +33,7 @@ function NewAuthor() {
       navigate("/authors-list");  // Após o cadastro ou edição, redireciona para a lista de autores
     } catch (error) {
       console.error("Erro ao cadastrar ou editar autor:", error);
-      alert("Erro ao processar a operação. Verifique os dados e tente novamente.");
+      alert("Voce nao tem permiçoes para acessar essa funcionalidade.");
     }
   };
 

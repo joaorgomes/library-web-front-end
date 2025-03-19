@@ -1,8 +1,20 @@
 import React from "react";
 import NavbarItem from "./NavbarItem";
+import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const Navbar = () => {
+  const { logout, userRoles } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    console.log('logout--')
+    logout();
+    navigate("/");
+  };
+  const hasSurveyAccess = userRoles && userRoles.includes("ADMIN");
   return (
     <nav className="navbar navbar-expand-lg bg-primary fixed-top">
       <div className="container-fluid">
@@ -13,7 +25,9 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarColor01">
           <ul className="navbar-nav me-auto">
             <NavbarItem href="/dashboard" label="Home" />
-            <li className="nav-item dropdown">
+            {/* Verificando se o usuário tem o role necessário para acessar o item */}
+
+            <li className="nav-item dropdown" >
               <a className="nav-link dropdown-toggle" href="#" id="cadastroDropdown"
                 role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastro</a>
               <ul className="dropdown-menu" aria-labelledby="cadastroDropdown">
@@ -22,6 +36,7 @@ const Navbar = () => {
                 <li><a className="dropdown-item" href="/new-publishers">Editoras</a></li>
               </ul>
             </li>
+
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="listarDropdown"
                 role="button" data-bs-toggle="dropdown" aria-expanded="false">Listar</a>
@@ -47,7 +62,10 @@ const Navbar = () => {
                 <li><a className="dropdown-item" href="/loan-list">Consultar Empréstimos</a></li>
               </ul>
             </li>
+    
+            {hasSurveyAccess && (
             <NavbarItem href="/surveys" label="Vistorias" />
+          )}
             <NavbarItem href="/login" label="Sair" />
 
           </ul>
